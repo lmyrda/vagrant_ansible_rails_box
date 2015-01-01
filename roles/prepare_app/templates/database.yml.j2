@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  timeout: 5000
+  encoding: utf8
+  reconnect: false
+  database: development_{{ database_name }}
+  pool: 5
+  username: {{ database_user }}
+  password: {{ database_password }}
+  host: {{ database_host }}
+  port: {{ database_port }}
+
+test:
+  adapter: postgresql
+  timeout: 5000
+  encoding: utf8
+  reconnect: false
+  database: test_{{ database_name }}
+  pool: 5
+  username: {{ database_user }}
+  password: {{ database_password }}
+  host: {{ database_host }}
+  port: {{ database_port }}

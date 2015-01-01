@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  vars_files:
+    - vars/vagrant.yml
+    - vars/app.yml
+  roles:
+    ### Server provisioning roles:
+    - { role: linux-prereqs, tags: ['linux-prereqs'] }
+    - { role: ufw, tags: ['ufw'] }
+    - { role: postgresql, tags: ['postgresql'] }
+    - { role: rbenv, tags: ['rbenv'] }
+    - { role: ruby, tags: ['ruby'] }
+    - { role: nginx-passenger, tags: ['nginx-passenger'] }
+    - { role: oh-my-zsh, tags: ['oh-my-zsh'] }
+    - { role: prepare_app, tags: ['prepare_app'] }

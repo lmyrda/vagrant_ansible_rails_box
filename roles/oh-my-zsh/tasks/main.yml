@@ -1,0 +1,28 @@
+- name: Install zsh vim htop tig
+  sudo: yes
+  action: apt pkg={{item}} state=latest update_cache=true
+  with_items:
+   - zsh
+   - vim
+   - htop
+   - tig
+
+- name: Clone oh-my-zsh repo
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{deploy}}/.oh-my-zsh
+
+- name: Create conf folder in home directory
+  file: path=/home/{{deploy}}/conf/ state=directory owner={{deploy}}
+
+- name: deploy .zshrc
+  template: src=files/zshrc.in dest=/home/{{deploy}}/conf/zshrc owner={{deploy}}
+
+- name: remove standard zshrc
+  file: path=/home/{{deploy}}/.zshrc state=absent
+
+- name: symlink zshrc
+  sudo: yes
+  file: path=/home/{{deploy}}/.zshrc src=/home/{{deploy}}/conf/zshrc state=link owner={{deploy}}
+
+- name: Set zsh as default shell
+  sudo: yes
+  user: name={{deploy}} shell=/bin/zsh
