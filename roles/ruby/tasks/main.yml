@@ -17,3 +17,6 @@
 
 - name: install_bundler
   shell: cd; bash -lc "gem install bundle bundler"
+
+- name: install rails
+  shell: cd; bash -lc "gem install rails"

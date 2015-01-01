@@ -35,6 +35,7 @@
 ##
 
 - name: mkdir -p ~{{deploy}}/apps/{{full_app_name}}/config
+  sudo: yes
   file: path=~{{deploy}}/apps/{{full_app_name}}/config state=directory
 
 - name: Copy database.yml to config

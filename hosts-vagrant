@@ -1,2 +1,2 @@
 [webservers]
-application.dev ansible_ssh_host=10.33.33.33
+rails-app.dev ansible_ssh_host=10.33.33.33
