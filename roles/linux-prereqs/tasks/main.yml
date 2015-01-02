@@ -35,15 +35,15 @@
     - nfs-common # make virtualbox faster
     - pkg-config
     - sqlite3
-    - vim
     - zlib1g-dev
-    - htop
     - iftop
     - python-pycurl # for postgresql playbook, uses apt_pkg
     - python-software-properties # for `add-apt-repository` command
     - fail2ban
     - ufw
     - unattended-upgrades
+    - imagemagick
+    - libmagickcore-dev
 
 - name: Disallow root SSH access
   action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
@@ -63,16 +63,3 @@
   copy: src=50unattended-upgrades dest=/etc/apt/apt.conf.d/50unattended-upgrades
   sudo: yes
 
-
-# Rails depends on a JS runtime.
-# Should move this to it's own role, eventually.
-
-- name: Node.js | Add the node.js PPA
-  action: command add-apt-repository -y ppa:chris-lea/node.js creates=/etc/apt/sources.list.d/chris-lea-node_js-trusty.list
-  sudo: yes
-
-- name: Node.js | Install nodejs and npm
-  action: apt pkg={{ item }} state=installed update_cache=yes
-  sudo: yes
-  with_items:
-   - nodejs
