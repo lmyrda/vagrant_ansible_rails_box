@@ -9,7 +9,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     web.vm.box = "ubuntu/trusty64"
     web.vm.network :private_network, ip: "10.33.33.33"
     web.vm.network :forwarded_port, guest: 80, host: 8080
-    config.vm.synced_folder './rails-app', '/home/vagrant/apps/rails-app'
+    config.vm.synced_folder './rails-app', '/home/vagrant/apps/rails-app', id: "vagrant-root",
+      owner: "vagrant",
+      group: "www-data",
+      mount_options: ["dmode=775,fmode=666"]
     web.vm.hostname = "rails-app.dev"
 
     web.vm.provider :virtualbox do |vb|
