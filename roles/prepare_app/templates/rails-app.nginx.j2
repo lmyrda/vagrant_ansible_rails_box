@@ -4,7 +4,7 @@ server {
   root /home/{{deploy}}/apps/{{full_app_name}}/public;
   passenger_enabled on;
   rails_spawn_method smart;
-  rails_env {{rails_env}};
+  rails_env production;
   passenger_set_cgi_param SECRET_KEY_BASE "39d95ff31bba12f1ea6bf0f2e332fc7b4797679b04ce9d45deb155fdc090a57960ee3fae82383fa18015c9444f5828769";
 
 

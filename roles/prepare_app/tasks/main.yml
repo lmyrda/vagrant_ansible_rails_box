@@ -1,6 +1,10 @@
 ##
 ## Postgres
 ##
+- name: Create production_{{database_name}} database
+  sudo: yes
+  sudo_user: postgres
+  postgresql_db: name=production_{{database_name}}
 
 - name: Create development_{{database_name}} database
   sudo: yes
@@ -12,6 +16,14 @@
   sudo: yes
   sudo_user: postgres
   postgresql_db: name=test_{{database_name}}
+
+- name: Create user {{database_user}} on production_{{database_name}}
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: db=production_{{database_name}}
+                   name={{database_user}}
+                   password={{database_password}}
+                   priv=ALL
 
 - name: Create user {{database_user}} on development_{{database_name}}
   sudo: yes

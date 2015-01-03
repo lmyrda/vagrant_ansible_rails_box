@@ -16,7 +16,10 @@
   shell: cd; bash -lc "rbenv global {{ ruby_version }}"
 
 - name: install_bundler
-  shell: cd; bash -lc "gem install bundle bundler"
+  shell: cd; bash -lc "gem install bundle bundler --no-document"
 
 - name: install rails
-  shell: cd; bash -lc "gem install rails"
+  shell: cd; bash -lc "gem install rails --no-document"
+
+- name: install mailcatcher
+  shell: cd; bash -lc "gem install mailcatcher --no-document"

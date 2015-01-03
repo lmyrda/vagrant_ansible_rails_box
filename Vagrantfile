@@ -1,5 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+# always use rails s -b 0.0.0.0
 
 VAGRANTFILE_API_VERSION = "2"
 
@@ -9,6 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     web.vm.box = "ubuntu/trusty64"
     web.vm.network :private_network, ip: "10.33.33.33"
     web.vm.network :forwarded_port, guest: 80, host: 8080
+    web.vm.network :forwarded_port, guest: 3000, host: 3000
+    web.vm.network :forwarded_port, guest: 1080, host: 1080
     config.vm.synced_folder './rails-app', '/home/vagrant/apps/rails-app', id: "vagrant-root",
       owner: "vagrant",
       group: "www-data",
