@@ -22,6 +22,7 @@
     - gawk
     - git-core
     - git
+    - libcurl3-dev
     - libxml2-dev
     - libffi-dev
     - libyaml-dev
@@ -44,6 +45,7 @@
     - unattended-upgrades
     - imagemagick
     - libmagickcore-dev
+    - graphicsmagick
 
 - name: Disallow root SSH access
   action: lineinfile dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
@@ -62,4 +64,3 @@
 - name: Configure unattended upgrades
   copy: src=50unattended-upgrades dest=/etc/apt/apt.conf.d/50unattended-upgrades
   sudo: yes
-

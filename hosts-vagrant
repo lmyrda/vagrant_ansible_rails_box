@@ -1,2 +1,2 @@
 [webservers]
-rails-app.dev ansible_ssh_host=10.33.33.33
+makerschannel.dev ansible_ssh_host=10.33.33.33

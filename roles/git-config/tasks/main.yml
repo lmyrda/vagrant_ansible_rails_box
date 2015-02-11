@@ -1,0 +1,3 @@
+- name: Copy .gitconfig from host to vm
+  sudo: no
+  template: src=~/.gitconfig dest=~/.gitconfig

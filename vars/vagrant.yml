@@ -3,6 +3,6 @@
 deploy: vagrant
 
 # Ruby version to install
-ruby_version: 2.1.5
+ruby_version: 2.1.2
 rails_version: 4.2.0
 rbenv_makeopts: ""

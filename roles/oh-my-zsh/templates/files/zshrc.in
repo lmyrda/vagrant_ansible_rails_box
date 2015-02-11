@@ -8,7 +8,7 @@ export TERM="xterm-256color"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="ys" #"agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -35,7 +35,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cp command-not-found git-extras gnu-utils history pip python ruby screen ssh-agent svn)
+plugins=(git cp command-not-found git-extras gnu-utils history pip python ruby screen svn)
 
 source $ZSH/oh-my-zsh.sh
 

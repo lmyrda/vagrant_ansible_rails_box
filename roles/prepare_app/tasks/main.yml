@@ -46,18 +46,10 @@
 ## Rails
 ##
 
-- name: mkdir -p ~{{deploy}}/apps/{{full_app_name}}/config
+- name: mkdir -p ~{{deploy}}/{{full_app_name}}/config
   sudo: yes
-  file: path=~{{deploy}}/apps/{{full_app_name}}/config state=directory
+  file: path=~{{deploy}}/{{full_app_name}}/config state=directory
 
 - name: Copy database.yml to config
   sudo: yes   # or chgrp will fail. For some reason, the setgid doesn't work here.
-  template: src=database.yml.j2 dest=~{{deploy}}/apps/{{full_app_name}}/config/database.yml owner={{deploy}} group=www-data mode=0640
-
-###
-### Nginx
-###
-
-- name: Deploy {{full_app_name}} nginx config to sites-available
-  sudo: yes
-  template: src={{full_app_name}}.nginx.j2 dest=/etc/nginx/sites-enabled/{{full_app_name}}
+  template: src=database.yml.j2 dest=~{{deploy}}/{{full_app_name}}/config/database.yml
